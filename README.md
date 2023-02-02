@@ -71,4 +71,4 @@ fontSize|Number|16| 文字大小
 
 
 ## License
-[MIT](https://github.com/leiyun1993/mp-license-plate/blob/mian/LICENSE)
+[MIT](https://github.com/leiyun1993/mp-license-plate/blob/main/LICENSE)
