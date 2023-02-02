@@ -1,0 +1,46 @@
+<!--components/mp-license-plate/index.wxml-->
+<view class="license-plate_container">
+    <!-- 输入框 -->
+    <view>
+        <view class="input_container">
+            <view class="input_box {{activeIndex == index?'active':''}} {{index==licensePlateLength-1 && !inputValue[index]?'green':''}}" wx:for="{{licensePlateLength}}" wx:key="index" bindtap="inputTap" data-index="{{index}}" style="border-width: {{borderWidth}}rpx;border-radius: {{borderRadius}}rpx;border-color: {{activeIndex == index?borderActiveColor:borderColor}};">
+                <view class="lp_button input" wx:if="{{inputValue[index]}}" style="border-radius: {{borderRadius}}rpx;font-size: {{fontSize}}rpx; color: {{fontColor}};">{{inputValue[index]}}</view>
+            </view>
+        </view>
+    </view>
+    <!-- 键盘 -->
+    <view class="keyboard_container" hidden="{{!visible}}">
+        <view class="keyboard_header" bindtap="visibleTap">
+            <image class="icon icon-keyboard" mode="heightFix" src="./icon/ic_keyboard.png" />
+        </view>
+        <view class="keyboard_body">
+            <view class="province_list" wx:if="{{activeIndex==0}}">
+                <view wx:for="{{provinceList}}" wx:key="item" class="key_wrapper" bindtap="btnTap" data-item="{{item}}">
+                    <view class="lp_button">
+                        {{ item }}
+                    </view>
+                </view>
+            </view>
+            <view class="number_list" wx:if="{{activeIndex!=0}}">
+                <view class="numer_wapper" wx:for="{{numberList}}" wx:key="item" bindtap="btnTap" data-item="{{item}}" data-disabled="{{activeIndex==1}}">
+                    <view class="lp_button {{activeIndex==1?'disabled':''}}">
+                        {{ item }}
+                    </view>
+                </view>
+            </view>
+            <view class="number_list" wx:if="{{activeIndex!=0}}">
+                <view class="numer_wapper" wx:for="{{letterList}}" wx:key="item" bindtap="btnTap" data-item="{{item}}" data-disabled="{{item=='O'&&activeIndex>1}}">
+                    <view class="lp_button {{item=='O'&&activeIndex>1?'disabled':''}}">
+                        {{ item }}
+                    </view>
+                </view>
+                <view class="numer_wapper" bindtap="delTap">
+                    <view class="lp_button img">
+                        删
+                        <image mode="heightFix" src="./icon/ic_backspace.png" class="icon icon-backspace" />
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

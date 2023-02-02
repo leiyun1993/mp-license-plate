@@ -1,0 +1,132 @@
+/* components/mp-license-plate/index.wxss */
+.input_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.input_container .input_box {
+    flex: 1;
+    border: 1px solid #79aef3;
+    height: 40px;
+    border-radius: 6px;
+    /* padding: 2px; */
+}
+
+.input_container .input_box+.input_box {
+    margin-left: 10px;
+}
+
+.input_container .input_box:last-of-type {
+    border-color: #67c23a;
+    border-style: dashed;
+    position: relative;
+}
+
+.input_container .input_box.green::after {
+    content: '新能源';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.5);
+    font-size: 18px;
+    white-space: nowrap;
+    color: #67c23a;
+}
+
+.input_container .input_box.active {
+    border-color: #330aec;
+    border-style: solid;
+}
+
+.keyboard_container {
+    position: fixed;
+    z-index: 999;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    background-color: #e2e3e7;
+    padding: 10px 0 calc(env(safe-area-inset-bottom) + 10px) 6px;
+    box-sizing: border-box;
+}
+
+.keyboard_container .keyboard_body {
+    margin-top: 5px;
+}
+
+.keyboard_container .keyboard_body .province_list {
+    display: flex;
+    -webkit-box-flex: 8;
+    -webkit-flex: 8;
+    flex: 8;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+.keyboard_container .keyboard_body .province_list .key_wrapper {
+    flex: 1;
+    flex-basis: 12.5%;
+    padding: 0 6px 6px 0;
+    box-sizing: border-box;
+}
+
+.keyboard_container .keyboard_body .number_list {
+    display: flex;
+    -webkit-box-flex: 8;
+    -webkit-flex: 8;
+    flex: 8;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+.keyboard_container .keyboard_body .number_list .numer_wapper {
+    flex: 1;
+    flex-basis: 10%;
+    padding: 0 6px 6px 0;
+    box-sizing: border-box;
+}
+
+.lp_button {
+    box-sizing: border-box;
+    text-align: center;
+    background-color: #fff;
+    padding: 10px 0;
+}
+.lp_button.input{
+    background-color: transparent;
+    height: 40px;
+    padding: 0;
+    line-height: 40px;
+}
+.lp_button.disabled {
+    background-color: #eaeaea;
+}
+
+.icon {
+    position: relative;
+    height: 20px;
+}
+
+.icon-keyboard::after {
+    position: absolute;
+    content: '';
+    border: 3px solid #666;
+    bottom: 0;
+    left: 50%;
+    transform: rotate(45deg) translateX(-50%);
+    border-color: transparent #666 #666 transparent;
+}
+
+.lp_button.img {
+    position: relative;
+    color: transparent;
+}
+
+.icon-backspace {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}

@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+      "mp-license-plate":"../../components/mp-license-plate/index"
+  }
+}

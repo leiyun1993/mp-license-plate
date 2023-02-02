@@ -1,0 +1,13 @@
+<!--index.wxml-->
+<view class="container">
+    <view class="title">请输入你的车牌号码:</view>
+    <mp-license-plate value="" bindchange="change" autoShow="{{true}}"/>
+    <!-- borderColor="red"
+        borderActiveColor="blue"
+        borderRadius="12"
+        borderWidth="4"
+        fontColor="black"
+        fontSize="32" -->
+
+    <view class="btn" hover-class="base-hover">确定</view>
+</view>
