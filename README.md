@@ -40,6 +40,7 @@ change(event) {
 }
 ```
 * 展示如下
+
 ![](https://github.com/leiyun1993/mp-license-plate/raw/main/screenshot/s1.jpeg)
 
 ## API
