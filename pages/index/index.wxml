@@ -1,7 +1,7 @@
 <!--index.wxml-->
 <view class="container">
     <view class="title">请输入你的车牌号码:</view>
-    <mp-license-plate value="" bindchange="change" autoShow="{{true}}"/>
+    <mp-license-plate value="" bindchange="change" autoShow="{{false}}" />
     <!-- borderColor="red"
         borderActiveColor="blue"
         borderRadius="12"
@@ -10,4 +10,18 @@
         fontSize="32" -->
 
     <view class="btn" hover-class="base-hover">确定</view>
+
+</view>
+
+<view class="container mt30">
+    <view class="title">请输入你的车牌号码:</view>
+    <mp-license-plate value="{{licensePlate}}" bindchange="change" autoShow="{{false}}" useSlot="{{true}}">
+        <view class="custom">
+            {{licensePlate}}
+        </view>
+    </mp-license-plate>
+
+    <view class="btn" hover-class="base-hover">确定</view>
+
+    
 </view>

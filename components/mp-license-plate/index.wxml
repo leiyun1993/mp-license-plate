@@ -2,10 +2,15 @@
 <view class="license-plate_container">
     <!-- 输入框 -->
     <view>
-        <view class="input_container">
-            <view class="input_box {{activeIndex == index?'active':''}} {{index==licensePlateLength-1 && !inputValue[index]?'green':''}}" wx:for="{{licensePlateLength}}" wx:key="index" bindtap="inputTap" data-index="{{index}}" style="border-width: {{borderWidth}}rpx;border-radius: {{borderRadius}}rpx;border-color: {{activeIndex == index?borderActiveColor:borderColor}};">
+        <view class="input_container" wx:if="{{!useSlot}}">
+            <view class="input_box {{activeIndex == index?'active':''}} {{index==licensePlateLength-1 && !inputValue[index]?'green':''}}" wx:for="{{licensePlateLength}}" wx:key="index" catchtap="inputTap" data-index="{{index}}" style="border-width: {{borderWidth}}rpx;border-radius: {{borderRadius}}rpx;border-color: {{activeIndex == index?borderActiveColor:borderColor}};">
                 <view class="lp_button input" wx:if="{{inputValue[index]}}" style="border-radius: {{borderRadius}}rpx;font-size: {{fontSize}}rpx; color: {{fontColor}};">{{inputValue[index]}}</view>
             </view>
+        </view>
+        <view wx:else catchtap="slotTap">
+            <slot>
+
+            </slot>
         </view>
     </view>
     <!-- 键盘 -->
@@ -34,7 +39,7 @@
                         {{ item }}
                     </view>
                 </view>
-                <view class="numer_wapper" bindtap="delTap">
+                <view class="numer_wapper delete" bindtap="delTap">
                     <view class="lp_button img">
                         删
                         <image mode="heightFix" src="./icon/ic_backspace.png" class="icon icon-backspace" />

@@ -15,5 +15,9 @@ Page({
         console.log(val.array) //数组形式
         console.log(val.value) //字符串形式
         console.log(val.pass) //是否验证通过
+
+        this.setData({
+            licensePlate:val.value
+        })
     }
 })

@@ -1,6 +1,6 @@
 // components/mp-license-plate/index.js
 
-const LICENSE_PLATE_RULE = /^[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领][A-HJ-NP-Z][A-HJ-NP-Z0-9]{4,5}[A-HJ-NP-Z0-9挂学警港澳]$/;
+const LICENSE_PLATE_RULE = /^[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领][A-HJ-NP-Z][A-HJ-NP-Z0-9]{4,5}[A-HJ-NP-Z0-9挂学警港澳使领]$/;
 Component({
     /**
      * 组件的属性列表
@@ -46,6 +46,11 @@ Component({
             type: Number,
             value: 30
         },
+        //是否使用slot
+        useSlot: {
+            type: Boolean,
+            value: false
+        },
     },
 
     observers: {
@@ -64,8 +69,8 @@ Component({
     data: {
         licensePlateLength: 8,
         provinceList: ["京", "津", "渝", "沪", "冀", "晋", "辽", "吉", "黑", "苏", "浙", "皖", "闽", "赣", "鲁", "豫", "鄂", "湘", "粤", "琼", "川", "贵", "云", "陕", "甘", "青", "蒙", "桂", "宁", "新", "藏", "临"],
-        numberList: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
-        letterList: ['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'O', 'P', '澳', 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', '港', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', '学', '领'],
+        numberList: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, '警'],
+        letterList: ['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'O', 'P', '港', '澳', 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', '挂', '学', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', '领'],
         activeIndex: -1,
         inputValue: ["", "", "", "", "", "", "", ""],
         visible: false,
@@ -90,6 +95,19 @@ Component({
             this.setData({
                 visible: false
             })
+        },
+        slotTap(){
+            let length = this.data.inputValue.filter(it => it).length;
+            if (!this.data.visible) {
+                this.setData({
+                    activeIndex: length == 0 ? 0 : length - 1,
+                    visible: true
+                })
+            }else{
+                this.setData({
+                    activeIndex: length == 0 ? 0 : length - 1,
+                })
+            }
         },
         inputTap(event) {
             const index = event.currentTarget.dataset.index;

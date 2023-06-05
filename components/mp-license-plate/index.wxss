@@ -83,9 +83,13 @@
 
 .keyboard_container .keyboard_body .number_list .numer_wapper {
     flex: 1;
-    flex-basis: 10%;
+    flex-basis: 9.08%;
     padding: 0 6px 6px 0;
     box-sizing: border-box;
+}
+
+.keyboard_container .keyboard_body .number_list .numer_wapper.delete {
+    flex-basis: 27%;
 }
 
 .lp_button {
@@ -94,12 +98,14 @@
     background-color: #fff;
     padding: 10px 0;
 }
-.lp_button.input{
+
+.lp_button.input {
     background-color: transparent;
     height: 40px;
     padding: 0;
     line-height: 40px;
 }
+
 .lp_button.disabled {
     background-color: #eaeaea;
 }
